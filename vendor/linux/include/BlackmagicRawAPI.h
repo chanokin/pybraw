@@ -1,5 +1,5 @@
 /* -LICENSE-START-
-** Copyright (c) 2021 Blackmagic Design
+** Copyright (c) 2024 Blackmagic Design
 **
 ** Permission is hereby granted, free of charge, to any person or organization
 ** obtaining a copy of the software and accompanying documentation covered by
@@ -49,30 +49,33 @@
 
 // Interface ID Declarations
 
-BMD_CONST REFIID IID_IBlackmagicRaw                               = /* 5A540A06-1B62-4224-ACB0-A2385C6ED649 */ { 0x5A,0x54,0x0A,0x06,0x1B,0x62,0x42,0x24,0xAC,0xB0,0xA2,0x38,0x5C,0x6E,0xD6,0x49 };
-BMD_CONST REFIID IID_IBlackmagicRawFactory                        = /* 74FEBEDC-12D6-490D-9A77-48F19E8F60CB */ { 0x74,0xFE,0xBE,0xDC,0x12,0xD6,0x49,0x0D,0x9A,0x77,0x48,0xF1,0x9E,0x8F,0x60,0xCB };
+BMD_CONST REFIID IID_IBlackmagicRaw                               = /* 558ABA39-B344-4E9B-A484-116CF2A4B5C6 */ { 0x55,0x8A,0xBA,0x39,0xB3,0x44,0x4E,0x9B,0xA4,0x84,0x11,0x6C,0xF2,0xA4,0xB5,0xC6 };
+BMD_CONST REFIID IID_IBlackmagicRawFactory                        = /* 78DEEB84-98C9-434A-B7E5-7AACC2988399 */ { 0x78,0xDE,0xEB,0x84,0x98,0xC9,0x43,0x4A,0xB7,0xE5,0x7A,0xAC,0xC2,0x98,0x83,0x99 };
 BMD_CONST REFIID IID_IBlackmagicRawPipelineIterator               = /* 051ED792-3D9D-4ED0-BB1F-3873E08773CB */ { 0x05,0x1E,0xD7,0x92,0x3D,0x9D,0x4E,0xD0,0xBB,0x1F,0x38,0x73,0xE0,0x87,0x73,0xCB };
 BMD_CONST REFIID IID_IBlackmagicRawPipelineDeviceIterator         = /* 32D3385F-06EE-4260-82EB-2BABFFFACED8 */ { 0x32,0xD3,0x38,0x5F,0x06,0xEE,0x42,0x60,0x82,0xEB,0x2B,0xAB,0xFF,0xFA,0xCE,0xD8 };
 BMD_CONST REFIID IID_IBlackmagicRawOpenGLInteropHelper            = /* 86444C8A-4398-4364-9166-7D10F41C315E */ { 0x86,0x44,0x4C,0x8A,0x43,0x98,0x43,0x64,0x91,0x66,0x7D,0x10,0xF4,0x1C,0x31,0x5E };
-BMD_CONST REFIID IID_IBlackmagicRawPipelineDevice                 = /* 2B0D350D-8C17-431F-88AD-1E7945DF2F9F */ { 0x2B,0x0D,0x35,0x0D,0x8C,0x17,0x43,0x1F,0x88,0xAD,0x1E,0x79,0x45,0xDF,0x2F,0x9F };
+BMD_CONST REFIID IID_IBlackmagicRawPipelineDevice                 = /* 67BB92E8-AD7E-432E-8BA5-E688A2A63F2F */ { 0x67,0xBB,0x92,0xE8,0xAD,0x7E,0x43,0x2E,0x8B,0xA5,0xE6,0x88,0xA2,0xA6,0x3F,0x2F };
 BMD_CONST REFIID IID_IBlackmagicRawToneCurve                      = /* 7E40C13D-3575-46B5-B2B7-85DAE1EEFD77 */ { 0x7E,0x40,0xC1,0x3D,0x35,0x75,0x46,0xB5,0xB2,0xB7,0x85,0xDA,0xE1,0xEE,0xFD,0x77 };
-BMD_CONST REFIID IID_IBlackmagicRawConstants                      = /* DE64F929-93A1-45A9-BA69-166A7DEF9FB3 */ { 0xDE,0x64,0xF9,0x29,0x93,0xA1,0x45,0xA9,0xBA,0x69,0x16,0x6A,0x7D,0xEF,0x9F,0xB3 };
-BMD_CONST REFIID IID_IBlackmagicRawConfiguration                  = /* F8588A3D-E31F-45BD-96C7-A5640EA8B8E7 */ { 0xF8,0x58,0x8A,0x3D,0xE3,0x1F,0x45,0xBD,0x96,0xC7,0xA5,0x64,0x0E,0xA8,0xB8,0xE7 };
+BMD_CONST REFIID IID_IBlackmagicRawConfiguration                  = /* 267E9866-FB40-4BFB-8BF8-96EA3F7DA36E */ { 0x26,0x7E,0x98,0x66,0xFB,0x40,0x4B,0xFB,0x8B,0xF8,0x96,0xEA,0x3F,0x7D,0xA3,0x6E };
 BMD_CONST REFIID IID_IBlackmagicRawConfigurationEx                = /* ACE9078F-ABA0-4B26-A954-EDA108DADA5A */ { 0xAC,0xE9,0x07,0x8F,0xAB,0xA0,0x4B,0x26,0xA9,0x54,0xED,0xA1,0x08,0xDA,0xDA,0x5A };
+BMD_CONST REFIID IID_IBlackmagicRawClipGeometry                   = /* 22717196-36AE-4B8A-B5CC-24292F9660F0 */ { 0x22,0x71,0x71,0x96,0x36,0xAE,0x4B,0x8A,0xB5,0xCC,0x24,0x29,0x2F,0x96,0x60,0xF0 };
 BMD_CONST REFIID IID_IBlackmagicRawResourceManager                = /* 3C5C3C4A-812C-4AF0-99F0-06C6E197C189 */ { 0x3C,0x5C,0x3C,0x4A,0x81,0x2C,0x4A,0xF0,0x99,0xF0,0x06,0xC6,0xE1,0x97,0xC1,0x89 };
 BMD_CONST REFIID IID_IBlackmagicRawMetadataIterator               = /* F85AE78D-5DC2-40BC-8C1D-D0D805523ADA */ { 0xF8,0x5A,0xE7,0x8D,0x5D,0xC2,0x40,0xBC,0x8C,0x1D,0xD0,0xD8,0x05,0x52,0x3A,0xDA };
-BMD_CONST REFIID IID_IBlackmagicRawClipProcessingAttributes       = /* AA3F216F-123F-4617-B741-6B6F497E94AA */ { 0xAA,0x3F,0x21,0x6F,0x12,0x3F,0x46,0x17,0xB7,0x41,0x6B,0x6F,0x49,0x7E,0x94,0xAA };
-BMD_CONST REFIID IID_IBlackmagicRawPost3DLUT                      = /* 72A53B50-BB40-4C69-83FB-58CF58AF35B6 */ { 0x72,0xA5,0x3B,0x50,0xBB,0x40,0x4C,0x69,0x83,0xFB,0x58,0xCF,0x58,0xAF,0x35,0xB6 };
-BMD_CONST REFIID IID_IBlackmagicRawFrameProcessingAttributes      = /* 659756A6-215B-47A7-A1A5-F5D6CD79D450 */ { 0x65,0x97,0x56,0xA6,0x21,0x5B,0x47,0xA7,0xA1,0xA5,0xF5,0xD6,0xCD,0x79,0xD4,0x50 };
+BMD_CONST REFIID IID_IBlackmagicRawClipProcessingAttributes       = /* 1F53C8AE-2295-4C8E-B17F-5931F4F146AC */ { 0x1F,0x53,0xC8,0xAE,0x22,0x95,0x4C,0x8E,0xB1,0x7F,0x59,0x31,0xF4,0xF1,0x46,0xAC };
+BMD_CONST REFIID IID_IBlackmagicRawFrameProcessingAttributes      = /* 5F7C5C0F-7138-445A-9D0D-6111B6409D17 */ { 0x5F,0x7C,0x5C,0x0F,0x71,0x38,0x44,0x5A,0x9D,0x0D,0x61,0x11,0xB6,0x40,0x9D,0x17 };
+BMD_CONST REFIID IID_IBlackmagicRawPost3DLUT                      = /* 86052BC4-0231-48C6-B3C8-C771112AAD68 */ { 0x86,0x05,0x2B,0xC4,0x02,0x31,0x48,0xC6,0xB3,0xC8,0xC7,0x71,0x11,0x2A,0xAD,0x68 };
 BMD_CONST REFIID IID_IBlackmagicRawProcessedImage                 = /* D87A0F72-A883-42BB-8488-0089411C5035 */ { 0xD8,0x7A,0x0F,0x72,0xA8,0x83,0x42,0xBB,0x84,0x88,0x00,0x89,0x41,0x1C,0x50,0x35 };
 BMD_CONST REFIID IID_IBlackmagicRawJob                            = /* 34C05ACF-7118-45EA-8B71-887E0515395D */ { 0x34,0xC0,0x5A,0xCF,0x71,0x18,0x45,0xEA,0x8B,0x71,0x88,0x7E,0x05,0x15,0x39,0x5D };
 BMD_CONST REFIID IID_IBlackmagicRawCallback                       = /* E9F98FAC-33DB-4A65-BB94-8A82B027AED0 */ { 0xE9,0xF9,0x8F,0xAC,0x33,0xDB,0x4A,0x65,0xBB,0x94,0x8A,0x82,0xB0,0x27,0xAE,0xD0 };
 BMD_CONST REFIID IID_IBlackmagicRawClipAudio                      = /* 76D4ACED-E0D6-45BB-B547-56B7435B2A1D */ { 0x76,0xD4,0xAC,0xED,0xE0,0xD6,0x45,0xBB,0xB5,0x47,0x56,0xB7,0x43,0x5B,0x2A,0x1D };
-BMD_CONST REFIID IID_IBlackmagicRawFrame                          = /* 226A7BC7-16EE-4D78-B724-D3D0E073ADE7 */ { 0x22,0x6A,0x7B,0xC7,0x16,0xEE,0x4D,0x78,0xB7,0x24,0xD3,0xD0,0xE0,0x73,0xAD,0xE7 };
+BMD_CONST REFIID IID_IBlackmagicRawClipAccelerometerMotion        = /* 983AACBB-F469-40C9-AA81-345B0B7CCD05 */ { 0x98,0x3A,0xAC,0xBB,0xF4,0x69,0x40,0xC9,0xAA,0x81,0x34,0x5B,0x0B,0x7C,0xCD,0x05 };
+BMD_CONST REFIID IID_IBlackmagicRawClipGyroscopeMotion            = /* 00543A2C-FDED-4C79-A60C-A460415F0296 */ { 0x00,0x54,0x3A,0x2C,0xFD,0xED,0x4C,0x79,0xA6,0x0C,0xA4,0x60,0x41,0x5F,0x02,0x96 };
+BMD_CONST REFIID IID_IBlackmagicRawClipPDAFData                   = /* AAE71534-F951-4062-B6A9-69B8808CD267 */ { 0xAA,0xE7,0x15,0x34,0xF9,0x51,0x40,0x62,0xB6,0xA9,0x69,0xB8,0x80,0x8C,0xD2,0x67 };
+BMD_CONST REFIID IID_IBlackmagicRawFrame                          = /* A500B253-1808-4EF2-8692-D23C692404EA */ { 0xA5,0x00,0xB2,0x53,0x18,0x08,0x4E,0xF2,0x86,0x92,0xD2,0x3C,0x69,0x24,0x04,0xEA };
 BMD_CONST REFIID IID_IBlackmagicRawFrameEx                        = /* F8C6C374-D7FB-4BD3-AD0B-C533464FF450 */ { 0xF8,0xC6,0xC3,0x74,0xD7,0xFB,0x4B,0xD3,0xAD,0x0B,0xC5,0x33,0x46,0x4F,0xF4,0x50 };
 BMD_CONST REFIID IID_IBlackmagicRawManualDecoderFlow1             = /* 278815A6-A3C1-47C7-A0A6-6754DEAE5E7A */ { 0x27,0x88,0x15,0xA6,0xA3,0xC1,0x47,0xC7,0xA0,0xA6,0x67,0x54,0xDE,0xAE,0x5E,0x7A };
 BMD_CONST REFIID IID_IBlackmagicRawManualDecoderFlow2             = /* DBEC4C39-B4C2-4A65-AA8C-2B3C7F4777E3 */ { 0xDB,0xEC,0x4C,0x39,0xB4,0xC2,0x4A,0x65,0xAA,0x8C,0x2B,0x3C,0x7F,0x47,0x77,0xE3 };
-BMD_CONST REFIID IID_IBlackmagicRawClip                           = /* 408F758F-347F-4CDA-BA9B-89B6F15603CF */ { 0x40,0x8F,0x75,0x8F,0x34,0x7F,0x4C,0xDA,0xBA,0x9B,0x89,0xB6,0xF1,0x56,0x03,0xCF };
+BMD_CONST REFIID IID_IBlackmagicRawClip                           = /* A2910203-787B-4BF2-A374-B1A459E2D351 */ { 0xA2,0x91,0x02,0x03,0x78,0x7B,0x4B,0xF2,0xA3,0x74,0xB1,0xA4,0x59,0xE2,0xD3,0x51 };
 BMD_CONST REFIID IID_IBlackmagicRawClipEx                         = /* D260C7D0-93BD-4D68-B600-93B4CAB7F870 */ { 0xD2,0x60,0xC7,0xD0,0x93,0xBD,0x4D,0x68,0xB6,0x00,0x93,0xB4,0xCA,0xB7,0xF8,0x70 };
 BMD_CONST REFIID IID_IBlackmagicRawClipResolutions                = /* 3070805E-ABE3-498C-9D77-8C991B2B77E5 */ { 0x30,0x70,0x80,0x5E,0xAB,0xE3,0x49,0x8C,0x9D,0x77,0x8C,0x99,0x1B,0x2B,0x77,0xE5 };
 
@@ -112,8 +115,13 @@ enum _BlackmagicRawResourceFormat {
     blackmagicRawResourceFormatBGRAU16                           = /* '16la' */ 0x31366C61,
     blackmagicRawResourceFormatRGBU16Planar                      = /* '16pl' */ 0x3136706C,
     blackmagicRawResourceFormatRGBF32                            = /* 'f32s' */ 0x66333273,
+    blackmagicRawResourceFormatRGBAF32                           = /* 'f32l' */ 0x6633326C,
+    blackmagicRawResourceFormatBGRAF32                           = /* 'f32a' */ 0x66333261,
     blackmagicRawResourceFormatRGBF32Planar                      = /* 'f32p' */ 0x66333270,
-    blackmagicRawResourceFormatBGRAF32                           = /* 'f32a' */ 0x66333261
+    blackmagicRawResourceFormatRGBF16                            = /* 'f16s' */ 0x66313673,
+    blackmagicRawResourceFormatRGBAF16                           = /* 'f16l' */ 0x6631366C,
+    blackmagicRawResourceFormatBGRAF16                           = /* 'f16a' */ 0x66313661,
+    blackmagicRawResourceFormatRGBF16Planar                      = /* 'f16p' */ 0x66313670
 };
 
 /* Enum BlackmagicRawResourceUsage - Used in IBlackmagicRawResourceManager */
@@ -160,11 +168,7 @@ enum _BlackmagicRawResolutionScale {
     blackmagicRawResolutionScaleFull                             = /* 'full' */ 0x66756C6C,
     blackmagicRawResolutionScaleHalf                             = /* 'half' */ 0x68616C66,
     blackmagicRawResolutionScaleQuarter                          = /* 'qrtr' */ 0x71727472,
-    blackmagicRawResolutionScaleEighth                           = /* 'eith' */ 0x65697468,
-    blackmagicRawResolutionScaleFullUpsideDown                   = /* 'lluf' */ 0x6C6C7566,
-    blackmagicRawResolutionScaleHalfUpsideDown                   = /* 'flah' */ 0x666C6168,
-    blackmagicRawResolutionScaleQuarterUpsideDown                = /* 'rtrq' */ 0x72747271,
-    blackmagicRawResolutionScaleEighthUpsideDown                 = /* 'htie' */ 0x68746965
+    blackmagicRawResolutionScaleEighth                           = /* 'eith' */ 0x65697468
 };
 
 /* Enum BlackmagicRawClipProcessingAttribute - Variant types that may be stored as metadata */
@@ -216,6 +220,42 @@ enum _BlackmagicRawInterop {
     blackmagicRawInteropOpenGL                                   = /* 'opgl' */ 0x6F70676C
 };
 
+/* Enum BlackmagicRawAnamorphicRatio -  */
+
+typedef uint32_t BlackmagicRawAnamorphicRatio;
+enum _BlackmagicRawAnamorphicRatio {
+    blackmagicRawAnamorphicRatioFromMetadata                     = /* 'meta' */ 0x6D657461,
+    blackmagicRawAnamorphicRatioDisabled                         = /* 'dsbl' */ 0x6473626C,
+    blackmagicRawAnamorphicRatio133x                             = /* '133x' */ 0x31333378,
+    blackmagicRawAnamorphicRatio15x                              = /* '15x_' */ 0x3135785F,
+    blackmagicRawAnamorphicRatio16x                              = /* '16x_' */ 0x3136785F,
+    blackmagicRawAnamorphicRatio166x                             = /* '166x' */ 0x31363678,
+    blackmagicRawAnamorphicRatio18x                              = /* '18x_' */ 0x3138785F,
+    blackmagicRawAnamorphicRatio2x                               = /* '2x__' */ 0x32785F5F
+};
+
+/* Enum BlackmagicRawRotation -  */
+
+typedef uint32_t BlackmagicRawRotation;
+enum _BlackmagicRawRotation {
+    blackmagicRawRotationFromMetadata                            = /* 'meta' */ 0x6D657461,
+    blackmagicRawRotationDisabled                                = /* 'dsbl' */ 0x6473626C,
+    blackmagicRawRotationClockwise90                             = /* 'r90_' */ 0x7239305F,
+    blackmagicRawRotationClockwise180                            = /* 'r180' */ 0x72313830,
+    blackmagicRawRotationClockwise270                            = /* 'r270' */ 0x72323730
+};
+
+/* Enum BlackmagicRawFlip -  */
+
+typedef uint32_t BlackmagicRawFlip;
+enum _BlackmagicRawFlip {
+    blackmagicRawFlipFromMetadata                                = /* 'meta' */ 0x6D657461,
+    blackmagicRawFlipDisabled                                    = /* 'dsbl' */ 0x6473626C,
+    blackmagicRawFlipHorizontal                                  = /* 'flpx' */ 0x666C7078,
+    blackmagicRawFlipVertical                                    = /* 'flpy' */ 0x666C7079,
+    blackmagicRawFlipBoth                                        = /* 'flpb' */ 0x666C7062
+};
+
 #if defined(__cplusplus)
 
 // Forward Declarations
@@ -227,18 +267,21 @@ class IBlackmagicRawPipelineDeviceIterator;
 class IBlackmagicRawOpenGLInteropHelper;
 class IBlackmagicRawPipelineDevice;
 class IBlackmagicRawToneCurve;
-class IBlackmagicRawConstants;
 class IBlackmagicRawConfiguration;
 class IBlackmagicRawConfigurationEx;
+class IBlackmagicRawClipGeometry;
 class IBlackmagicRawResourceManager;
 class IBlackmagicRawMetadataIterator;
 class IBlackmagicRawClipProcessingAttributes;
-class IBlackmagicRawPost3DLUT;
 class IBlackmagicRawFrameProcessingAttributes;
+class IBlackmagicRawPost3DLUT;
 class IBlackmagicRawProcessedImage;
 class IBlackmagicRawJob;
 class IBlackmagicRawCallback;
 class IBlackmagicRawClipAudio;
+class IBlackmagicRawClipAccelerometerMotion;
+class IBlackmagicRawClipGyroscopeMotion;
+class IBlackmagicRawClipPDAFData;
 class IBlackmagicRawFrame;
 class IBlackmagicRawFrameEx;
 class IBlackmagicRawManualDecoderFlow1;
@@ -261,7 +304,7 @@ struct SafeArray
 {
     BlackmagicRawVariantType variantType;
     uint32_t cDims;
-    void* data;
+    uint8_t* data;
     SafeArrayBound bounds;
 };
 
@@ -270,8 +313,8 @@ struct SafeArray
 struct Variant
 {
     BlackmagicRawVariantType vt;
-    
-    // Metadata 
+
+    // Metadata
     union {
         int16_t iVal;
         uint16_t uiVal;
@@ -289,6 +332,7 @@ class BMD_PUBLIC IBlackmagicRaw : public IUnknown
 {
 public:
     virtual HRESULT OpenClip (/* in */ const char* fileName, /* out */ IBlackmagicRawClip** clip) = 0;
+    virtual HRESULT OpenClipWithGeometry (/* in */ const char* fileName, /* in */ IBlackmagicRawClipGeometry* geometry, /* out */ IBlackmagicRawClip** clip) = 0;
     virtual HRESULT SetCallback (/* in */ IBlackmagicRawCallback* callback) = 0;
     virtual HRESULT PreparePipeline (/* in */ BlackmagicRawPipeline pipeline, /* in */ void* pipelineContext, /* in */ void* pipelineCommandQueue, /* in */ void* userData /* optional */) = 0;	// Asynchronously prepares the current pipeline
     virtual HRESULT PreparePipelineForDevice (/* in */ IBlackmagicRawPipelineDevice* pipelineDevice, /* in */ void* userData /* optional */) = 0;	// Asynchronously prepares the current pipeline
@@ -306,6 +350,7 @@ public:
     virtual HRESULT CreateCodec (/* out */ IBlackmagicRaw** codec) = 0;
     virtual HRESULT CreatePipelineIterator (/* in */ BlackmagicRawInterop interop, /* out */ IBlackmagicRawPipelineIterator** pipelineIterator) = 0;
     virtual HRESULT CreatePipelineDeviceIterator (/* in */ BlackmagicRawPipeline pipeline, /* in */ BlackmagicRawInterop interop, /* out */ IBlackmagicRawPipelineDeviceIterator** deviceIterator) = 0;
+    virtual HRESULT CreateClipGeometry (/* out */ IBlackmagicRawClipGeometry** geometry) = 0;
 
 protected:
     virtual ~IBlackmagicRawFactory () {} // call Release method to drop reference count
@@ -365,9 +410,7 @@ public:
     virtual HRESULT GetPipeline (/* out */ BlackmagicRawPipeline* pipeline, /* out */ void** context, /* out */ void** commandQueue) = 0;
     virtual HRESULT GetPipelineName (/* out */ const char** pipelineName) = 0;
     virtual HRESULT GetOpenGLInteropHelper (/* out */ IBlackmagicRawOpenGLInteropHelper** interopHelper) = 0;
-
-protected:
-    virtual ~IBlackmagicRawPipelineDevice () {} // call Release method to drop reference count
+    virtual HRESULT GetSupportedResourceFormats (/* out */ BlackmagicRawResourceFormat* array /* optional */, /* in, out */ uint32_t* arrayElementCount /* optional */) = 0;
 };
 
 /* Interface IBlackmagicRawToneCurve - Functions which provide useful tone curve operations */
@@ -380,21 +423,6 @@ public:
 
 protected:
     virtual ~IBlackmagicRawToneCurve () {} // call Release method to drop reference count
-};
-
-/* Interface IBlackmagicRawConstants - Constants which are used between IBlackmagicRawClipProcessingAttributes and IBlackmagicRawFrameProcessingAttributes are shared across clips */
-
-class BMD_PUBLIC IBlackmagicRawConstants : public IUnknown
-{
-public:
-    virtual HRESULT GetClipProcessingAttributeRange (/* in */ const char* cameraType, /* in */ BlackmagicRawClipProcessingAttribute attribute, /* out */ Variant* valueMin, /* out */ Variant* valueMax, /* out */ bool* isReadOnly) = 0;
-    virtual HRESULT GetClipProcessingAttributeList (/* in */ const char* cameraType, /* in */ BlackmagicRawClipProcessingAttribute attribute, /* out */ Variant* array /* optional */, /* out */ uint32_t* arrayElementCount /* optional */, /* out */ bool* isReadOnly) = 0;
-    virtual HRESULT GetFrameProcessingAttributeRange (/* in */ const char* cameraType, /* in */ BlackmagicRawFrameProcessingAttribute attribute, /* out */ Variant* valueMin, /* out */ Variant* valueMax, /* out */ bool* isReadOnly) = 0;
-    virtual HRESULT GetFrameProcessingAttributeList (/* in */ const char* cameraType, /* in */ BlackmagicRawFrameProcessingAttribute attribute, /* out */ Variant* array /* optional */, /* out */ uint32_t* arrayElementCount /* optional */, /* out */ bool* isReadOnly) = 0;
-    virtual HRESULT GetISOListForAnalogGain (/* in */ const char* cameraType, /* in */ float analogGain, /* in */ bool analogGainIsConstant, /* out */ uint32_t* array /* optional */, /* in, out */ uint32_t* arrayElementCount /* optional */, /* out */ bool* isReadOnly) = 0;
-
-protected:
-    virtual ~IBlackmagicRawConstants () {} // call Release method to drop reference count
 };
 
 /* Interface IBlackmagicRawConfiguration - Configuration for Codec Object. Configuration properties are read on first OpenClip() */
@@ -411,6 +439,8 @@ public:
     virtual HRESULT SetWriteMetadataPerFrame (/* in */ bool writePerFrame) = 0;	// if true, frame metadata will be written to only the relevant frame
     virtual HRESULT GetWriteMetadataPerFrame (/* out */ bool* writePerFrame) = 0;
     virtual HRESULT SetFromDevice (/* in */ IBlackmagicRawPipelineDevice* pipelineDevice) = 0;
+    virtual HRESULT GetVersion (/* out */ const char** version) = 0;
+    virtual HRESULT GetCameraSupportVersion (/* out */ const char** version) = 0;
 
 protected:
     virtual ~IBlackmagicRawConfiguration () {} // call Release method to drop reference count
@@ -428,6 +458,22 @@ public:
 
 protected:
     virtual ~IBlackmagicRawConfigurationEx () {} // call Release method to drop reference count
+};
+
+/* Interface IBlackmagicRawClipGeometry - Geometry properties of Clip object */
+
+class BMD_PUBLIC IBlackmagicRawClipGeometry : public IUnknown
+{
+public:
+    virtual HRESULT GetAnamorphicRatio (/* out */ BlackmagicRawAnamorphicRatio* anamorphic) = 0;
+    virtual HRESULT SetAnamorphicRatio (/* in */ BlackmagicRawAnamorphicRatio anamorphic) = 0;
+    virtual HRESULT GetRotation (/* out */ BlackmagicRawRotation* rotation) = 0;
+    virtual HRESULT SetRotation (/* in */ BlackmagicRawRotation rotation) = 0;
+    virtual HRESULT GetFlip (/* out */ BlackmagicRawFlip* flip) = 0;
+    virtual HRESULT SetFlip (/* in */ BlackmagicRawFlip flip) = 0;
+
+protected:
+    virtual ~IBlackmagicRawClipGeometry () {} // call Release method to drop reference count
 };
 
 /* Interface IBlackmagicRawResourceManager - Resource manager allows manual handling of CPU/GPU resource allocation */
@@ -464,10 +510,28 @@ class BMD_PUBLIC IBlackmagicRawClipProcessingAttributes : public IUnknown
 public:
     virtual HRESULT GetClipAttribute (/* in */ BlackmagicRawClipProcessingAttribute attribute, /* out */ Variant* value) = 0;
     virtual HRESULT SetClipAttribute (/* in */ BlackmagicRawClipProcessingAttribute attribute, /* in */ Variant* value) = 0;
+    virtual HRESULT GetClipAttributeRange (/* in */ BlackmagicRawClipProcessingAttribute attribute, /* out */ Variant* valueMin, /* out */ Variant* valueMax, /* out */ bool* isReadOnly) = 0;
+    virtual HRESULT GetClipAttributeList (/* in */ BlackmagicRawClipProcessingAttribute attribute, /* out */ Variant* array /* optional */, /* out */ uint32_t* arrayElementCount /* optional */, /* out */ bool* isReadOnly) = 0;
+    virtual HRESULT GetISOList (/* out */ uint32_t* array /* optional */, /* in, out */ uint32_t* arrayElementCount /* optional */, /* out */ bool* isReadOnly) = 0;
     virtual HRESULT GetPost3DLUT (/* out */ IBlackmagicRawPost3DLUT** lut) = 0;
 
 protected:
     virtual ~IBlackmagicRawClipProcessingAttributes () {} // call Release method to drop reference count
+};
+
+/* Interface IBlackmagicRawFrameProcessingAttributes - Frame attributes used during processing */
+
+class BMD_PUBLIC IBlackmagicRawFrameProcessingAttributes : public IUnknown
+{
+public:
+    virtual HRESULT GetFrameAttribute (/* in */ BlackmagicRawFrameProcessingAttribute attribute, /* out */ Variant* value) = 0;
+    virtual HRESULT SetFrameAttribute (/* in */ BlackmagicRawFrameProcessingAttribute attribute, /* in */ Variant* value) = 0;
+    virtual HRESULT GetFrameAttributeRange (/* in */ BlackmagicRawFrameProcessingAttribute attribute, /* out */ Variant* valueMin, /* out */ Variant* valueMax, /* out */ bool* isReadOnly) = 0;
+    virtual HRESULT GetFrameAttributeList (/* in */ BlackmagicRawFrameProcessingAttribute attribute, /* out */ Variant* array /* optional */, /* out */ uint32_t* arrayElementCount /* optional */, /* out */ bool* isReadOnly) = 0;
+    virtual HRESULT GetISOList (/* out */ uint32_t* array /* optional */, /* in, out */ uint32_t* arrayElementCount /* optional */, /* out */ bool* isReadOnly) = 0;
+
+protected:
+    virtual ~IBlackmagicRawFrameProcessingAttributes () {} // call Release method to drop reference count
 };
 
 /* Interface IBlackmagicRawPost3DLUT - 3D LUT object */
@@ -481,21 +545,10 @@ public:
     virtual HRESULT GetResourceGPU (/* in */ void* context, /* in */ void* commandQueue, /* out */ BlackmagicRawResourceType* type, /* out */ void** resource) = 0;
     virtual HRESULT GetResourceCPU (/* out */ void** resource) = 0;
     virtual HRESULT GetResourceSizeBytes (/* out */ uint32_t* sizeBytes) = 0;
+    virtual HRESULT WriteCubeFile (/* in */ const char* fileName) = 0;
 
 protected:
     virtual ~IBlackmagicRawPost3DLUT () {} // call Release method to drop reference count
-};
-
-/* Interface IBlackmagicRawFrameProcessingAttributes - Frame attributes used during processing */
-
-class BMD_PUBLIC IBlackmagicRawFrameProcessingAttributes : public IUnknown
-{
-public:
-    virtual HRESULT GetFrameAttribute (/* in */ BlackmagicRawFrameProcessingAttribute attribute, /* out */ Variant* value) = 0;
-    virtual HRESULT SetFrameAttribute (/* in */ BlackmagicRawFrameProcessingAttribute attribute, /* in */ Variant* value) = 0;
-
-protected:
-    virtual ~IBlackmagicRawFrameProcessingAttributes () {} // call Release method to drop reference count
 };
 
 /* Interface IBlackmagicRawProcessedImage - Processed image ready to display */
@@ -563,6 +616,50 @@ protected:
     virtual ~IBlackmagicRawClipAudio () {} // call Release method to drop reference count
 };
 
+/* Interface IBlackmagicRawClipAccelerometerMotion - Accelerometer motion for an opened movie clip */
+
+class BMD_PUBLIC IBlackmagicRawClipAccelerometerMotion : public IUnknown
+{
+public:
+    virtual HRESULT GetSampleRate (/* out */ float* sampleRate) = 0;
+    virtual HRESULT GetSampleCount (/* out */ uint32_t* sampleCount) = 0;
+    virtual HRESULT GetSampleSize (/* out */ uint32_t* sampleSize) = 0;
+    virtual HRESULT GetSampleRange (/* in */ uint64_t sampleStartIndex, /* in */ uint32_t sampleCount, /* out */ float* samples, /* out */ uint32_t* sampleCountOut) = 0;
+
+protected:
+    virtual ~IBlackmagicRawClipAccelerometerMotion () {} // call Release method to drop reference count
+};
+
+/* Interface IBlackmagicRawClipGyroscopeMotion - Gyroscope motion for an opened movie clip */
+
+class BMD_PUBLIC IBlackmagicRawClipGyroscopeMotion : public IUnknown
+{
+public:
+    virtual HRESULT GetSampleRate (/* out */ float* sampleRate) = 0;
+    virtual HRESULT GetSampleCount (/* out */ uint32_t* sampleCount) = 0;
+    virtual HRESULT GetSampleSize (/* out */ uint32_t* sampleSize) = 0;
+    virtual HRESULT GetSampleRange (/* in */ uint64_t sampleStartIndex, /* in */ uint32_t sampleCount, /* out */ float* samples, /* out */ uint32_t* sampleCountOut) = 0;
+
+protected:
+    virtual ~IBlackmagicRawClipGyroscopeMotion () {} // call Release method to drop reference count
+};
+
+/* Interface IBlackmagicRawClipPDAFData - Phase detection autofocus data for an opened movie clip */
+
+class BMD_PUBLIC IBlackmagicRawClipPDAFData : public IUnknown
+{
+public:
+    virtual HRESULT GetSampleImageWidthInPixels (/* out */ uint32_t* sampleImageWidthInPixelsOut) = 0;
+    virtual HRESULT GetSampleImageHeightInPixels (/* out */ uint32_t* sampleImageHeightInPixelsOut) = 0;
+    virtual HRESULT GetSampleImageBytesPerPixel (/* out */ uint32_t* sampleImageBytesPerPixelOut) = 0;
+    virtual HRESULT GetSampleSize (/* out */ uint32_t* sampleSizeOut) = 0;
+    virtual HRESULT GetSampleCount (/* out */ uint32_t* sampleCountOut) = 0;
+    virtual HRESULT GetSampleImages (/* in */ uint64_t sampleIndex, /* out */ uint8_t* leftSampleImageDataOut, /* out */ uint8_t* rightSampleImageDataOut, /* in */ uint32_t sampleImageDataSize) = 0;
+
+protected:
+    virtual ~IBlackmagicRawClipPDAFData () {} // call Release method to drop reference count
+};
+
 /* Interface IBlackmagicRawFrame - Frame of a clip */
 
 class BMD_PUBLIC IBlackmagicRawFrame : public IUnknown
@@ -578,6 +675,7 @@ public:
     virtual HRESULT GetResolutionScale (/* out */ BlackmagicRawResolutionScale* resolutionScale) = 0;
     virtual HRESULT SetResourceFormat (/* in */ BlackmagicRawResourceFormat resourceFormat) = 0;
     virtual HRESULT GetResourceFormat (/* out */ BlackmagicRawResourceFormat* resourceFormat) = 0;
+    virtual HRESULT GetSensorRate (/* out */ float* sensorRate) = 0;
     virtual HRESULT CreateJobDecodeAndProcessFrame (/* in */ IBlackmagicRawClipProcessingAttributes* clipProcessingAttributes /* optionally override clipProcessingAttributes */, /* in */ IBlackmagicRawFrameProcessingAttributes* frameProcessingAttributes /* optionally override frameProcessingAttributes */, /* out */ IBlackmagicRawJob** job) = 0;
 
 protected:
@@ -644,7 +742,7 @@ public:
     virtual HRESULT GetMetadataIterator (/* out */ IBlackmagicRawMetadataIterator** iterator) = 0;
     virtual HRESULT GetMetadata (/* in */ const char* key, /* out */ Variant* value) = 0;
     virtual HRESULT SetMetadata (/* in */ const char* key, /* in */ Variant* value) = 0;	// To clear metadata to movie original, set value to NULL. This data is not saved to disk until SaveSideCar() is called
-    virtual HRESULT GetCameraType (/* out */ const char** cameraType /* used by IBlackmagicRawConstants */) = 0;
+    virtual HRESULT GetCameraType (/* out */ const char** cameraType) = 0;
     virtual HRESULT CloneClipProcessingAttributes (/* out */ IBlackmagicRawClipProcessingAttributes** clipProcessingAttributes) = 0;	// creates object with current clip processing attributes
     virtual HRESULT GetMulticardFileCount (/* out */ uint32_t* multicardFileCount) = 0;
     virtual HRESULT IsMulticardFilePresent (/* in */ uint32_t index, /* out */ bool* isMulticardFilePresent) = 0;
@@ -653,6 +751,7 @@ public:
     virtual HRESULT ReloadSidecarFile (void) = 0;	// Reload metadata from sidecar file
     virtual HRESULT CreateJobReadFrame (/* in */ uint64_t frameIndex, /* out */ IBlackmagicRawJob** job) = 0;	// Create a job to read a frame
     virtual HRESULT CreateJobTrim (/* in */ const char* fileName, /* in */ uint64_t frameIndex, /* in */ uint64_t frameCount, /* in */ IBlackmagicRawClipProcessingAttributes* clipProcessingAttributes /* optional */, /* in */ IBlackmagicRawFrameProcessingAttributes* frameProcessingAttributes /* optional */, /* out */ IBlackmagicRawJob** job) = 0;
+    virtual HRESULT CloneWithGeometry (/* in */ IBlackmagicRawClipGeometry* geometry, /* out */ IBlackmagicRawClip** clip) = 0;
 
 protected:
     virtual ~IBlackmagicRawClip () {} // call Release method to drop reference count
@@ -680,7 +779,7 @@ public:
     virtual HRESULT GetResolutionCount (/* out */ uint32_t* resolutionCount) = 0;
     virtual HRESULT GetResolution (/* in */ uint32_t resolutionIndex, /* out */ uint32_t* resolutionWidthPixels, /* out */ uint32_t* resolutionHeightPixels) = 0;
     virtual HRESULT GetClosestResolutionForScale (/* in */ BlackmagicRawResolutionScale resolutionScale, /* out */ uint32_t* resolutionWidthPixels, /* out */ uint32_t* resolutionHeightPixels) = 0;
-    virtual HRESULT GetClosestScaleForResolution (/* in */ uint32_t resolutionWidthPixels, /* in */ uint32_t resolutionHeightPixels, /* in */ bool requestUpsideDown, /* out */ BlackmagicRawResolutionScale* resolutionScale) = 0;
+    virtual HRESULT GetClosestScaleForResolution (/* in */ uint32_t resolutionWidthPixels, /* in */ uint32_t resolutionHeightPixels, /* out */ BlackmagicRawResolutionScale* resolutionScale) = 0;
 
 protected:
     virtual ~IBlackmagicRawClipResolutions () {} // call Release method to drop reference count
@@ -690,18 +789,18 @@ protected:
 
 extern "C" {
 
-    IBlackmagicRawFactory* BMD_PUBLIC CreateBlackmagicRawFactoryInstance(void);
-    IBlackmagicRawFactory* BMD_PUBLIC CreateBlackmagicRawFactoryInstanceFromPath(/* in */ const char* loadPath);
-    IBlackmagicRawFactory* BMD_PUBLIC CreateBlackmagicRawFactoryInstanceFromExeRelativePath(/* in */ const char* loadPath);
-    HRESULT BMD_PUBLIC VariantInit(/* in */ Variant* variant);
-    HRESULT BMD_PUBLIC VariantClear(/* in */ Variant* variant);
-    SafeArray* BMD_PUBLIC SafeArrayCreate(/* in */ BlackmagicRawVariantType variantType, /* in */ uint32_t dimensions, /* in */ SafeArrayBound* safeArrayBound);
-    HRESULT BMD_PUBLIC SafeArrayGetVartype(/* in */ SafeArray* safeArray, /* out */ BlackmagicRawVariantType* variantType);
-    HRESULT BMD_PUBLIC SafeArrayGetLBound(/* in */ SafeArray* safeArray, /* in */ uint32_t dimensions, /* out */ long* lBound);
-    HRESULT BMD_PUBLIC SafeArrayGetUBound(/* in */ SafeArray* safeArray, /* in */ uint32_t dimensions, /* out */ long* uBound);
-    HRESULT BMD_PUBLIC SafeArrayAccessData(/* in */ SafeArray* safeArray, /* out */ void** outData);
-    HRESULT BMD_PUBLIC SafeArrayUnaccessData(/* in */ SafeArray* safeArray);
-    HRESULT BMD_PUBLIC SafeArrayDestroy(/* in */ SafeArray* safeArray);
+    BMD_PUBLIC IBlackmagicRawFactory* CreateBlackmagicRawFactoryInstance(void);
+    BMD_PUBLIC IBlackmagicRawFactory* CreateBlackmagicRawFactoryInstanceFromPath(/* in */ const char* loadPath);
+    BMD_PUBLIC IBlackmagicRawFactory* CreateBlackmagicRawFactoryInstanceFromExeRelativePath(/* in */ const char* loadPath);
+    BMD_PUBLIC HRESULT VariantInit(/* in */ Variant* variant);
+    BMD_PUBLIC HRESULT VariantClear(/* in */ Variant* variant);
+    BMD_PUBLIC SafeArray* SafeArrayCreate(/* in */ BlackmagicRawVariantType variantType, /* in */ uint32_t dimensions, /* in */ SafeArrayBound* safeArrayBound);
+    BMD_PUBLIC HRESULT SafeArrayGetVartype(/* in */ SafeArray* safeArray, /* out */ BlackmagicRawVariantType* variantType);
+    BMD_PUBLIC HRESULT SafeArrayGetLBound(/* in */ SafeArray* safeArray, /* in */ uint32_t dimensions, /* out */ long* lBound);
+    BMD_PUBLIC HRESULT SafeArrayGetUBound(/* in */ SafeArray* safeArray, /* in */ uint32_t dimensions, /* out */ long* uBound);
+    BMD_PUBLIC HRESULT SafeArrayAccessData(/* in */ SafeArray* safeArray, /* out */ void** outData);
+    BMD_PUBLIC HRESULT SafeArrayUnaccessData(/* in */ SafeArray* safeArray);
+    BMD_PUBLIC HRESULT SafeArrayDestroy(/* in */ SafeArray* safeArray);
 
 }
 

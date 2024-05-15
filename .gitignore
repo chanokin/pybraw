@@ -18,3 +18,4 @@ __pycache__/
 .eggs/
 *.so
 /tests/data/*.braw
+Blackmagic_RAW_Linux_*.tar.gz

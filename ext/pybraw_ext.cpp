@@ -362,7 +362,7 @@ SafeArray* convert_numpy_to_safe_array(py::array array) {
     } else {
         throw py::buffer_error("unsupported data type");
     }
-    void* data = malloc(buf.nbytes());
+    uint8_t* data = static_cast<uint8_t*>(malloc(buf.nbytes()));
     memcpy(data, buf.data(), buf.nbytes());
     // NOTE: We aren't using SafeArrayCreate because it segfaults for signed integer types.
     SafeArray* parray = new SafeArray();
@@ -570,10 +570,10 @@ PYBIND11_MODULE(_pybraw, m) {
         .value("blackmagicRawResolutionScaleHalf", blackmagicRawResolutionScaleHalf)
         .value("blackmagicRawResolutionScaleQuarter", blackmagicRawResolutionScaleQuarter)
         .value("blackmagicRawResolutionScaleEighth", blackmagicRawResolutionScaleEighth)
-        .value("blackmagicRawResolutionScaleFullUpsideDown", blackmagicRawResolutionScaleFullUpsideDown)
-        .value("blackmagicRawResolutionScaleHalfUpsideDown", blackmagicRawResolutionScaleHalfUpsideDown)
-        .value("blackmagicRawResolutionScaleQuarterUpsideDown", blackmagicRawResolutionScaleQuarterUpsideDown)
-        .value("blackmagicRawResolutionScaleEighthUpsideDown", blackmagicRawResolutionScaleEighthUpsideDown)
+        // .value("blackmagicRawResolutionScaleFullUpsideDown", blackmagicRawResolutionScaleFullUpsideDown)
+        // .value("blackmagicRawResolutionScaleHalfUpsideDown", blackmagicRawResolutionScaleHalfUpsideDown)
+        // .value("blackmagicRawResolutionScaleQuarterUpsideDown", blackmagicRawResolutionScaleQuarterUpsideDown)
+        // .value("blackmagicRawResolutionScaleEighthUpsideDown", blackmagicRawResolutionScaleEighthUpsideDown)
         .export_values()
     ;
 
@@ -830,13 +830,13 @@ PYBIND11_MODULE(_pybraw, m) {
             "resolutionIndex"_a
         )
         .def("GetClosestScaleForResolution",
-            [](IBlackmagicRawClipResolutions& self, uint32_t resolutionWidthPixels, uint32_t resolutionHeightPixels, bool requestUpsideDown) {
+            [](IBlackmagicRawClipResolutions& self, uint32_t resolutionWidthPixels, uint32_t resolutionHeightPixels) {
                 BlackmagicRawResolutionScale resolutionScale = 0;
-                HRESULT result = self.GetClosestScaleForResolution(resolutionWidthPixels, resolutionHeightPixels, requestUpsideDown, &resolutionScale);
+                HRESULT result = self.GetClosestScaleForResolution(resolutionWidthPixels, resolutionHeightPixels, &resolutionScale);
                 return std::make_tuple(result, resolutionScale);
             },
             "Return a scale which most closely matches the given resolution.",
-            "resolutionWidthPixels"_a, "resolutionHeightPixels"_a, "requestUpsideDown"_a
+            "resolutionWidthPixels"_a, "resolutionHeightPixels"_a
         )
     ;
 
@@ -1497,84 +1497,84 @@ PYBIND11_MODULE(_pybraw, m) {
         )
     ;
 
-    py::class_<IBlackmagicRawConstants,IUnknown,std::unique_ptr<IBlackmagicRawConstants,Releaser>>(m, "IBlackmagicRawConstants")
-        .def("GetClipProcessingAttributeRange",
-            [](IBlackmagicRawConstants& self, const char* cameraType, BlackmagicRawClipProcessingAttribute attribute) {
-                Variant valueMin, valueMax;
-                bool isReadOnly = false;
-                VariantInit(&valueMin);
-                VariantInit(&valueMax);
-                HRESULT result = self.GetClipProcessingAttributeRange(cameraType, attribute, &valueMin, &valueMax, &isReadOnly);
-                return std::make_tuple(result, valueMin, valueMax, isReadOnly);
-            },
-            "Get the clip processing attribute range for the specified attribute.",
-            "cameraType"_a, "attribute"_a
-        )
-        .def("GetClipProcessingAttributeList",
-            [](IBlackmagicRawConstants& self, const char* cameraType, BlackmagicRawClipProcessingAttribute attribute) {
-                std::vector<Variant> array;
-                bool isReadOnly = false;
-                uint32_t arrayElementCount = 0;
-                HRESULT result = self.GetClipProcessingAttributeList(cameraType, attribute, nullptr, &arrayElementCount, &isReadOnly);
-                if(SUCCEEDED(result)) {
-                    array.resize(arrayElementCount);
-                    for(uint32_t i = 0; i < arrayElementCount; ++i) {
-                        VariantInit(&array[i]);
-                    }
-                    result = self.GetClipProcessingAttributeList(cameraType, attribute, &array[0], &arrayElementCount, &isReadOnly);
-                }
-                return std::make_tuple(result, array, arrayElementCount, isReadOnly);
-            },
-            "Get the clip processing attribute value list for the specified attribute.",
-            "cameraType"_a, "attribute"_a
-        )
-        .def("GetFrameProcessingAttributeRange",
-            [](IBlackmagicRawConstants& self, const char* cameraType, BlackmagicRawFrameProcessingAttribute attribute) {
-                Variant valueMin, valueMax;
-                bool isReadOnly = false;
-                VariantInit(&valueMin);
-                VariantInit(&valueMax);
-                HRESULT result = self.GetFrameProcessingAttributeRange(cameraType, attribute, &valueMin, &valueMax, &isReadOnly);
-                return std::make_tuple(result, valueMin, valueMax, isReadOnly);
-            },
-            "Get the frame processing attribute range for the specified attribute.",
-            "cameraType"_a, "attribute"_a
-        )
-        .def("GetFrameProcessingAttributeList",
-            [](IBlackmagicRawConstants& self, const char* cameraType, BlackmagicRawFrameProcessingAttribute attribute) {
-                std::vector<Variant> array;
-                bool isReadOnly = false;
-                uint32_t arrayElementCount = 0;
-                HRESULT result = self.GetFrameProcessingAttributeList(cameraType, attribute, nullptr, &arrayElementCount, &isReadOnly);
-                if(SUCCEEDED(result)) {
-                    array.resize(arrayElementCount);
-                    for(uint32_t i = 0; i < arrayElementCount; ++i) {
-                        VariantInit(&array[i]);
-                    }
-                    result = self.GetFrameProcessingAttributeList(cameraType, attribute, &array[0], &arrayElementCount, &isReadOnly);
-                }
-                return std::make_tuple(result, array, arrayElementCount, isReadOnly);
-            },
-            "Get the frame processing attribute value list for the specified attribute.",
-            "cameraType"_a, "attribute"_a
-        )
-        .def("GetISOListForAnalogGain",
-            [](IBlackmagicRawConstants& self, const char* cameraType, float analogGain, bool analogGainIsConstant) {
-                std::vector<uint32_t> array;
-                bool isReadOnly = false;
-                uint32_t arrayElementCount = 0;
-                HRESULT result = self.GetISOListForAnalogGain(cameraType, analogGain, analogGainIsConstant, nullptr, &arrayElementCount, &isReadOnly);
-                if(SUCCEEDED(result)) {
-                    array.resize(arrayElementCount);
-                    std::fill(array.begin(), array.end(), 0);
-                    result = self.GetISOListForAnalogGain(cameraType, analogGain, analogGainIsConstant, &array[0], &arrayElementCount, &isReadOnly);
-                }
-                return std::make_tuple(result, array, arrayElementCount, isReadOnly);
-            },
-            "Get the frame processing attribute value list for the specified attribute.",
-            "cameraType"_a, "analogGain"_a, "analogGainIsConstant"_a
-        )
-    ;
+    // py::class_<IBlackmagicRawConstants,IUnknown,std::unique_ptr<IBlackmagicRawConstants,Releaser>>(m, "IBlackmagicRawConstants")
+    //     .def("GetClipProcessingAttributeRange",
+    //         [](IBlackmagicRawConstants& self, const char* cameraType, BlackmagicRawClipProcessingAttribute attribute) {
+    //             Variant valueMin, valueMax;
+    //             bool isReadOnly = false;
+    //             VariantInit(&valueMin);
+    //             VariantInit(&valueMax);
+    //             HRESULT result = self.GetClipProcessingAttributeRange(cameraType, attribute, &valueMin, &valueMax, &isReadOnly);
+    //             return std::make_tuple(result, valueMin, valueMax, isReadOnly);
+    //         },
+    //         "Get the clip processing attribute range for the specified attribute.",
+    //         "cameraType"_a, "attribute"_a
+    //     )
+    //     .def("GetClipProcessingAttributeList",
+    //         [](IBlackmagicRawConstants& self, const char* cameraType, BlackmagicRawClipProcessingAttribute attribute) {
+    //             std::vector<Variant> array;
+    //             bool isReadOnly = false;
+    //             uint32_t arrayElementCount = 0;
+    //             HRESULT result = self.GetClipProcessingAttributeList(cameraType, attribute, nullptr, &arrayElementCount, &isReadOnly);
+    //             if(SUCCEEDED(result)) {
+    //                 array.resize(arrayElementCount);
+    //                 for(uint32_t i = 0; i < arrayElementCount; ++i) {
+    //                     VariantInit(&array[i]);
+    //                 }
+    //                 result = self.GetClipProcessingAttributeList(cameraType, attribute, &array[0], &arrayElementCount, &isReadOnly);
+    //             }
+    //             return std::make_tuple(result, array, arrayElementCount, isReadOnly);
+    //         },
+    //         "Get the clip processing attribute value list for the specified attribute.",
+    //         "cameraType"_a, "attribute"_a
+    //     )
+    //     .def("GetFrameProcessingAttributeRange",
+    //         [](IBlackmagicRawConstants& self, const char* cameraType, BlackmagicRawFrameProcessingAttribute attribute) {
+    //             Variant valueMin, valueMax;
+    //             bool isReadOnly = false;
+    //             VariantInit(&valueMin);
+    //             VariantInit(&valueMax);
+    //             HRESULT result = self.GetFrameProcessingAttributeRange(cameraType, attribute, &valueMin, &valueMax, &isReadOnly);
+    //             return std::make_tuple(result, valueMin, valueMax, isReadOnly);
+    //         },
+    //         "Get the frame processing attribute range for the specified attribute.",
+    //         "cameraType"_a, "attribute"_a
+    //     )
+    //     .def("GetFrameProcessingAttributeList",
+    //         [](IBlackmagicRawConstants& self, const char* cameraType, BlackmagicRawFrameProcessingAttribute attribute) {
+    //             std::vector<Variant> array;
+    //             bool isReadOnly = false;
+    //             uint32_t arrayElementCount = 0;
+    //             HRESULT result = self.GetFrameProcessingAttributeList(cameraType, attribute, nullptr, &arrayElementCount, &isReadOnly);
+    //             if(SUCCEEDED(result)) {
+    //                 array.resize(arrayElementCount);
+    //                 for(uint32_t i = 0; i < arrayElementCount; ++i) {
+    //                     VariantInit(&array[i]);
+    //                 }
+    //                 result = self.GetFrameProcessingAttributeList(cameraType, attribute, &array[0], &arrayElementCount, &isReadOnly);
+    //             }
+    //             return std::make_tuple(result, array, arrayElementCount, isReadOnly);
+    //         },
+    //         "Get the frame processing attribute value list for the specified attribute.",
+    //         "cameraType"_a, "attribute"_a
+    //     )
+    //     .def("GetISOListForAnalogGain",
+    //         [](IBlackmagicRawConstants& self, const char* cameraType, float analogGain, bool analogGainIsConstant) {
+    //             std::vector<uint32_t> array;
+    //             bool isReadOnly = false;
+    //             uint32_t arrayElementCount = 0;
+    //             HRESULT result = self.GetISOListForAnalogGain(cameraType, analogGain, analogGainIsConstant, nullptr, &arrayElementCount, &isReadOnly);
+    //             if(SUCCEEDED(result)) {
+    //                 array.resize(arrayElementCount);
+    //                 std::fill(array.begin(), array.end(), 0);
+    //                 result = self.GetISOListForAnalogGain(cameraType, analogGain, analogGainIsConstant, &array[0], &arrayElementCount, &isReadOnly);
+    //             }
+    //             return std::make_tuple(result, array, arrayElementCount, isReadOnly);
+    //         },
+    //         "Get the frame processing attribute value list for the specified attribute.",
+    //         "cameraType"_a, "analogGain"_a, "analogGainIsConstant"_a
+    //     )
+    // ;
 
     py::class_<IBlackmagicRawManualDecoderFlow1,IUnknown,std::unique_ptr<IBlackmagicRawManualDecoderFlow1,Releaser>>(m, "IBlackmagicRawManualDecoderFlow1")
         .def("PopulateFrameStateBuffer",
@@ -1787,7 +1787,7 @@ PYBIND11_MODULE(_pybraw, m) {
         )
         DEF_QUERY_INTERFACE(IBlackmagicRaw, IBlackmagicRawConfiguration)
         DEF_QUERY_INTERFACE(IBlackmagicRaw, IBlackmagicRawConfigurationEx)
-        DEF_QUERY_INTERFACE(IBlackmagicRaw, IBlackmagicRawConstants)
+        // DEF_QUERY_INTERFACE(IBlackmagicRaw, IBlackmagicRawConstants)
         DEF_QUERY_INTERFACE(IBlackmagicRaw, IBlackmagicRawManualDecoderFlow1)
         DEF_QUERY_INTERFACE(IBlackmagicRaw, IBlackmagicRawManualDecoderFlow2)
         DEF_QUERY_INTERFACE(IBlackmagicRaw, IBlackmagicRawToneCurve)

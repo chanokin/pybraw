@@ -3,8 +3,8 @@ from enum import IntEnum
 
 
 class ResultCode(IntEnum):
-    """An enum representing HRESULT values.
-    """
+    """An enum representing HRESULT values."""
+
     S_OK = _pybraw.S_OK
     S_FALSE = _pybraw.S_FALSE
     E_UNEXPECTED = _pybraw.E_UNEXPECTED
@@ -19,9 +19,8 @@ class ResultCode(IntEnum):
     E_ACCESSDENIED = _pybraw.E_ACCESSDENIED
 
     def to_hex(self):
-        """Convert the result code into a hex number.
-        """
-        return f'0x{self & ((1 << 32) - 1):08X}'
+        """Convert the result code into a hex number."""
+        return f"0x{self & ((1 << 32) - 1):08X}"
 
     def is_success(self):
         """Return whether the result code indicates success.
@@ -36,12 +35,12 @@ class ResultCode(IntEnum):
         try:
             return cls(result).name
         except:
-            return 'UNKNOWN'
+            return "UNKNOWN"
 
 
 class PixelFormat(IntEnum):
-    """An enum representing the pixel format of an image resource.
-    """
+    """An enum representing the pixel format of an image resource."""
+
     RGBA_U8_Packed = _pybraw.blackmagicRawResourceFormatRGBAU8
     BGRA_U8_Packed = _pybraw.blackmagicRawResourceFormatBGRAU8
     RGB_U16_Packed = _pybraw.blackmagicRawResourceFormatRGBU16
@@ -53,42 +52,43 @@ class PixelFormat(IntEnum):
     BGRA_F32_Packed = _pybraw.blackmagicRawResourceFormatBGRAF32
 
     def channels(self):
-        parts = self.name.split('_')
-        assert parts[0] in {'RGBA', 'BGRA', 'RGB'}
+        parts = self.name.split("_")
+        assert parts[0] in {"RGBA", "BGRA", "RGB"}
         return parts[0]
 
     def data_type(self):
-        parts = self.name.split('_')
-        assert parts[1] in {'U8', 'U16', 'F32'}
+        parts = self.name.split("_")
+        assert parts[1] in {"U8", "U16", "F32"}
         return parts[1]
 
     def is_planar(self):
-        parts = self.name.split('_')
-        assert parts[2] in {'Packed', 'Planar'}
-        return parts[2] == 'Planar'
+        parts = self.name.split("_")
+        assert parts[2] in {"Packed", "Planar"}
+        return parts[2] == "Planar"
 
 
 class ResolutionScale(IntEnum):
-    """An enum representing different resolution scaling factors.
-    """
+    """An enum representing different resolution scaling factors."""
+
     Full = _pybraw.blackmagicRawResolutionScaleFull
     Half = _pybraw.blackmagicRawResolutionScaleHalf
     Quarter = _pybraw.blackmagicRawResolutionScaleQuarter
     Eighth = _pybraw.blackmagicRawResolutionScaleEighth
-    Full_Flipped = _pybraw.blackmagicRawResolutionScaleFullUpsideDown
-    Half_Flipped = _pybraw.blackmagicRawResolutionScaleHalfUpsideDown
-    Quarter_Flipped = _pybraw.blackmagicRawResolutionScaleQuarterUpsideDown
-    Eighth_Flipped = _pybraw.blackmagicRawResolutionScaleEighthUpsideDown
+    # Full_Flipped = _pybraw.blackmagicRawResolutionScaleFullUpsideDown
+    # Half_Flipped = _pybraw.blackmagicRawResolutionScaleHalfUpsideDown
+    # Quarter_Flipped = _pybraw.blackmagicRawResolutionScaleQuarterUpsideDown
+    # Eighth_Flipped = _pybraw.blackmagicRawResolutionScaleEighthUpsideDown
 
     def factor(self):
-        parts = self.name.split('_')
-        lookup = {'Full': 1, 'Half': 2, 'Quarter': 4, 'Eighth': 8}
+        parts = self.name.split("_")
+        lookup = {"Full": 1, "Half": 2, "Quarter": 4, "Eighth": 8}
         assert parts[0] in lookup
         return lookup[parts[0]]
 
     def is_flipped(self):
-        parts = self.name.split('_')
-        if len(parts) == 1:
-            return False
-        assert parts[1] == 'Flipped'
-        return True
+        return False
+        # parts = self.name.split('_')
+        # if len(parts) == 1:
+        #     return False
+        # assert parts[1] == 'Flipped'
+        # return True
